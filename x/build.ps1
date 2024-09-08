@@ -43,6 +43,8 @@ function Run {
   $buildFolderExists = Test-Path $buildFolder
   if ($buildFolderExists) {
     Remove-Item -Recurse -Force $buildFolder
+  } else {
+    New-Item -ItemType Directory -Path $buildFolder
   }
   Set-Location $buildFolder
   $cmakeCommand = 'cmake'
